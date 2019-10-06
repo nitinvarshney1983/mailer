@@ -7,7 +7,8 @@ import (
 	"os/signal"
 	"syscall"
 
-	"github.com/nitinvarshney1983/mailer/configs"
+	configs "../configs"
+	logging "../logging"
 )
 
 var appMode = "DEVELOPMENT"
@@ -15,7 +16,7 @@ var appMode = "DEVELOPMENT"
 func init() {
 	configSetUpArgs := &configs.ConfigArgs{
 		ConfigFilePath: []string{"./configs", "$HOME/configs"},
-		ConfigFileName: "appconfigs",
+		ConfigfileName: "appconfigs",
 	}
 	configs.SetUp(configSetUpArgs)
 }
@@ -41,6 +42,9 @@ func main() {
 		terminateApp <- true
 	}()
 
+	conf := configs.Get("LOGGING")
+	fmt.Printf("%v", conf)
+	logging.Setup(conf)
 	// Doing initial setup For Logging, DB and NATS
 
 	go printTime()
