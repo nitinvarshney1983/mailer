@@ -11,9 +11,13 @@ import (
 
 var appMode = "DEVELOPMENT"
 
-// func init(){
-// 	configSetUpArgs:=configs.
-// }
+ func init(){
+ 	configSetUpArgs:=&configs.ConfigArgs{
+		ConfigFilePath:[]string{"./configs","$HOME/configs"},
+		ConfigFileName:"appconfigs",
+	 }
+	// configs.S
+ }
 
 func main() {
 	// App Start, Printing banner

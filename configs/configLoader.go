@@ -10,9 +10,10 @@ import (
 	"github.com/spf13/viper"
 )
 
-type configArgs struct {
-	configFilePath []string
-	configfileName string
+// ConfigArgs for configurations
+type ConfigArgs struct {
+	ConfigFilePath []string
+	ConfigfileName string
 }
 
 const defaultConfigFileName = "appconfigs"
@@ -22,18 +23,19 @@ var (
 	viperInstance         *viper.Viper
 )
 
-func setUp(args *configArgs) {
+// SetUp for configurations
+func SetUp(args *ConfigArgs) {
 	viperInstance = viper.New()
 
 	filePath := defaultConfigFilePath
 	fileName := defaultConfigFileName
 
 	if args != nil {
-		if args.configfileName != "" {
-			fileName = args.configfileName
+		if args.ConfigfileName != "" {
+			fileName = args.ConfigfileName
 		}
-		if args.configFilePath != nil && len(args.configFilePath) > 0 {
-			filePath = args.configFilePath
+		if args.ConfigFilePath != nil && len(args.ConfigFilePath) > 0 {
+			filePath = args.ConfigFilePath
 		}
 	}
 
