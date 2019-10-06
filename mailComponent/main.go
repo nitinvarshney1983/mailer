@@ -6,7 +6,7 @@ import (
 	"os"
 	"os/signal"
 	"syscall"
-	//"configs"
+	"github.com/nitinvarshney1983/mailer/configs"
 )
 
 var appMode = "DEVELOPMENT"
