@@ -6,18 +6,19 @@ import (
 	"os"
 	"os/signal"
 	"syscall"
+
 	"github.com/nitinvarshney1983/mailer/configs"
 )
 
 var appMode = "DEVELOPMENT"
 
- func init(){
- 	configSetUpArgs:=&configs.ConfigArgs{
-		ConfigFilePath:[]string{"./configs","$HOME/configs"},
-		ConfigFileName:"appconfigs",
-	 }
-	// configs.S
- }
+func init() {
+	configSetUpArgs := &configs.ConfigArgs{
+		ConfigFilePath: []string{"./configs", "$HOME/configs"},
+		ConfigFileName: "appconfigs",
+	}
+	configs.SetUp(configSetUpArgs)
+}
 
 func main() {
 	// App Start, Printing banner
@@ -41,7 +42,6 @@ func main() {
 	}()
 
 	// Doing initial setup For Logging, DB and NATS
-	logging.
 
 	go printTime()
 
