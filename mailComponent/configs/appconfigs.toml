@@ -1,0 +1,5 @@
+[LOGGING]
+level="DEBUG"
+[LOGGING.logFileConfigs]
+logPath="./logs"
+fileName="mailComponentLogs"
