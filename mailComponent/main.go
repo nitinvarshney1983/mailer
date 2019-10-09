@@ -9,6 +9,8 @@ import (
 
 	configs "../configs"
 	logging "../logging"
+
+	persistence "../persistence"
 )
 
 var appMode = "DEVELOPMENT"
@@ -42,9 +44,11 @@ func main() {
 		terminateApp <- true
 	}()
 
-	conf := configs.Get("LOGGING")
-	fmt.Printf("%v", conf)
-	logging.Setup(conf)
+	//conf := configs.Get("LOGGING")
+	//fmt.Printf("%v", conf)
+	logging.Setup(configs.Get("LOGGING"))
+	persistence.SetUp(configs.Get("DB"))
+
 	// Doing initial setup For Logging, DB and NATS
 
 	go printTime()

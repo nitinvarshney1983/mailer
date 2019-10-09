@@ -2,4 +2,14 @@
 level="DEBUG"
 [LOGGING.logFileConfigs]
 logPath="./logs"
-fileName="mailComponentLogs"
+fileName="mailerlogs"
+
+[DB]
+[DB.clientOptions]
+server="127.0.0.1"
+port=27017
+authDatabase="admin"
+database="etDB"
+userName="etDBUser"
+password="etDBUser"
+

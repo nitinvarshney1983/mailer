@@ -3,7 +3,7 @@ package main
 import (
 	"time"
 
-	log "../logging"
+	log "github.com/nitinvarshney1983/mailer/logging"
 )
 
 func printTime() {
@@ -11,6 +11,7 @@ func printTime() {
 	for {
 		time.Sleep(100 * time.Millisecond)
 		log.Info(time.Now())
+
 	}
 
 }
