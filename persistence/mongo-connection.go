@@ -12,7 +12,7 @@ import (
 //MongoConnection for mongo connection
 //this is a wrapper of monngo session got from mongo driver
 type MongoConnection struct {
-	client *mongo.Client
+	Client *mongo.Client
 }
 
 var instance *MongoConnection
@@ -56,12 +56,15 @@ func SetUp(configurations interface{}) {
 			log.Fatal(err)
 		}
 
-		instance.client = client
+		instance = &MongoConnection{
+			Client: client,
+		}
+		log.Info(instance)
 	}
 
 }
 
 //GetConnection For DB
 func GetConnection(dbName string) *mongo.Database {
-	return instance.client.Database(dbName)
+	return instance.Client.Database(dbName)
 }
